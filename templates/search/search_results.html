@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block "content" %}
+  <div class="span10">
+    <h2>Search results for: '{{ query_string }}'</h2>
+    {% if matching_tags %}
+    Matching tags: 
+    {% for t in matching_tags %}{% if forloop.counter > 1 %}, {% endif %}<a href="{% url filter_by_tag t.slug %}" class="underline">{{ t }}</a>{% endfor %}
+    {% endif %}
+    <hr/>
+    <div class="row-fluid">
+      <div class="span5">
+        <h3>Ideas</h3>
+        {% if not found_ideas %}
+          No ideas match this query.
+        {% else %}
+          {% for idea in found_ideas %}
+            {{ idea }}: {{ idea.concept|truncatechars:40 }}<br/>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <div class="span5">
+        <h3>Research Links</h3>
+        {% if not found_links %}
+          No research links match this query.
+        {% else %}
+          {% for link in found_links %}
+            {{ link }}<br/>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+    <hr/>
+    <div class="row-fluid">
+      <div class="span5">
+        <h3>Projects</h3>
+        {% if not found_projects %}
+          No projects match this query.
+        {% else %}
+          {% for project in found_projects %}
+            <a href="{% url project_details project.slug %}" class="underline">{{ project }}</a><br/>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% for field in form %}
+    <label>
+        {% if field.field.required %}
+            <strong>{{ field.field.label}}</strong>
+        {% else %}
+            {{ field.field.label }}
+        {% endif %}
+        {% for error in field.errors %}{% if forloop.counter0 > 0 %}, {% endif %}<span class="errorlist"><i class="icon-exclamation-sign"></i> {{ error }}</span>{% endfor %}
+    </label>
+    {{ field }}
+{% endfor %}

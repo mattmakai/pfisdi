@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block "content" %}
+  <div class="row-fluid">
+    <div class="span10">
+      <div class="well">
+        <a href="{% url new_idea %}" class="btn btn-primary menu-btn"><i class="icon-plus icon-white"></i> New Idea</a>
+        <a href="{% url idea_connections %}" class="btn menu-btn"><i class="icon-resize-small"></i> Create Idea Connections</a>
+      </div>
+      <div id="msg-bar-wrapper"></div>
+      <h3>Ideas</h3>
+      {% if not ideas %}
+        <div>
+          No ideas added yet. 
+        </div>
+      {% else %}
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="ideas-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Created</th>
+              <th>Concept</th>
+              <th>Tags</th>
+          </thead>
+          <tbody>
+            {% for i in ideas %}  
+              <tr>
+                <td><a href="{% url idea i.slug %}">{{ i.name }}</a></td>
+                <td>{{ i.created }}</td>
+                <td>{{ i.concept|truncatechars:40 }}</td>
+                <td>{% for t in i.tags.all %}{% if forloop.counter > 1 %}, {% endif %}{{ t }}{% endfor %}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
+      <hr/>
+        <div class="well">
+            <a href="{% url new_research_link %}" class="btn btn-primary menu-btn"><i class="icon-plus icon-white"></i> New Research Link</a>
+        </div>
+      <div class="research-sites">
+        <h3>Research Links</h3>
+        {% if not research_links %}
+          No research websites added yet.
+        {% else %}
+          <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="research-table">
+            <thead>
+              <tr>
+                <th>Website</th>
+                <th>Tags</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for l in research_links %}
+                <tr>
+                  <td><a href="{{ l.url }}" class="underline" target="_blank">{{ l.name }}</a></td>
+                  <td>{% for t in l.tags.all %}{% if forloop.counter > 1 %}, {% endif %}{{ t }}{% endfor %}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

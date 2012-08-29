@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block "content" %}
+  <div class="well">
+    <a href="{% url associate_deployment %}" class="btn menu-btn"><i class="icon-resize-small"></i> Associate Deployment</a>
+  </div>
+  <div id="msg-bar-wrapper"></div>
+  {% if not deployments %} 
+    <div>
+      No deployment found.
+    </div>
+  {% else %}
+    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="instances-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Project</th>
+          <th>Production URL</th>
+      </thead>
+      <tbody>
+        {% for d in deployments %}  
+          <tr>
+            <td><a href="{% url deployment d.slug %}">{{ d.name }}</a></td>
+            <td>{{ d.project }}</td>
+            <td><a href="{{ d.project.production_url }}" target="_blank">{{ d.project.production_url }}</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+  
+{% endblock %}
+

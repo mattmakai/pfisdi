@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block "content" %}
+  {% if slug %}
+    <h3>{{ project.name }}</h3>
+  {% else %}
+    <h3>New Project</h3>
+  {% endif %}
+  <div class="row-fluid">
+    <div class="span4">
+      <div id="msg-bar-wrapper"></div>
+      {% if slug %}
+        <form method="POST" action="{% url project slug %}" id="submit-form">
+      {% else %}
+        <form method="POST" action="{% url new_project %}" id="submit-form">
+      {% endif %}
+        {% csrf_token %}
+        {% include "form_fields.html" %}
+        <label for="ideas">Associated Ideas</label>
+        <select name="ideas" id="ideas" multiple="multiple" class="span12">
+            {% for i in ideas %}
+                <option value="{{ i.id }}" {% if i.selected %}selected="selected"{% endif %}>{{ i.name }}</option>
+            {% endfor %}
+        </select>
+        {% include "tag_field.html" %}
+        <div class="btn-row">
+          <a href="{% url projects %}" class="btn">Cancel</a>
+          <button type="submit" id="submit-bt" class="btn btn-primary pull-right">
+            {% if slug %}Update Project{% else %}Create Project{% endif %}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block "content" %}
+  {% if not projects %}
+    <div>
+      No projects found.
+    </div>
+  {% else %}
+    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="marketing-table">
+      <thead>
+        <tr>
+          <th>Services</th>
+          <th>Last Blog Post</th>
+          <th>MailChimp?</th>
+      </thead>
+      <tbody>
+        {% for p in projects %}  
+          <tr>
+            <td><a href="#">{{ p.name }}</a></td>
+            <td></td>
+            <td></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+{% endblock %}
+

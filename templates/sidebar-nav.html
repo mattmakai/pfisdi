@@ -1,0 +1,31 @@
+<div class="well sidebar-nav">
+    <ul class="nav nav-list">
+      <li {% if is_dashboard %}class="active"{% endif %}>
+        <a href="{% url dashboard %}">Dashboard</a>
+      </li>
+      <li {% if is_ideas %}class="active"{% endif %}>
+        <a href="{% url ideas %}">Ideas</a>
+      </li>
+      <li {% if is_projects %}class="active"{% endif %}>
+        <a href="{% url projects %}">Projects</a>
+      </li>
+      <li {% if is_deployments %}class="active"{% endif %}>
+        <a href="{% url deployments %}">Deployments</a>
+      </li>
+      <li {% if is_monitoring %}class="active"{% endif %}>
+        <a href="{% url monitoring %}">Monitoring</a>
+      </li>
+      <li {% if is_marketing %}class="active"{% endif %}>
+        <a href="{% url marketing %}">Marketing</a>
+      </li>
+      <li {% if is_feedback %}class="active"{% endif %}>
+        <a href="{% url feedback %}">Feedback</a>
+      </li>
+      <li {% if is_iterate %}class="active"{% endif %}>
+        <a href="{% url iterate %}">Iterate</a>
+      </li>
+      <li {% if is_finance %}class="active"{% endif %}>
+        <a href="{% url finance %}">Finance</a>
+      </li>
+    </ul>
+</div>

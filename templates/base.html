@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Passion | Focus | Intensity | Solution | Distribution | Iteration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Passion | Focus | Intensity | Solution | Distribution | Iteration" />
+
+    <link href="{{ STATIC_URL }}css/pfi.css" rel="stylesheet" />
+    <link href="{{ STATIC_URL }}css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    {% include "nav.html" %}
+    <div class="container-fluid">
+      {% include "breadcrumbs.html" %}
+      <div class="row-fluid">
+        <div class="span2">
+            {% include "sidebar-nav.html" %}
+        </div>
+        <div class="span10">
+          {% block "content" %}{% endblock %}
+        </div>
+      </div>
+    </div>
+    <script src="{{ STATIC_URL }}js/jq.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery.form.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+    {% block "page_js" %}{% endblock %}
+    <script type="text/javascript">
+      var alertCount = 0;
+      function createAlert(msg, num) {
+        $("#msg-bar-wrapper").append("<div class='alert alert-error' style='display: none;' id='alert" + num + "'><a class='close' data-dismiss='alert'>x</a>" + msg + "</div>");
+        $("#alert" + num).slideDown();
+      }
+      function showMsg(msg, num) {
+        $("#msg-bar-wrapper").append("<div class='alert alert-success' style='display: none;' id='alert" + num + "'><a class='close' data-dismiss='alert'>x</a>" + msg + "</div>");
+        alertCount++;
+        $("#alert" + num).slideDown();
+      }
+      function showErrorOrRedirect(data) {
+        if(data.redirect) {
+          window.location.replace(data.redirect);
+        } else {
+          createAlert(data, alertCount++);
+        }
+      }
+      var submitOptions = { success: showErrorOrRedirect };
+
+      $(document).ready(function() {
+        {% for msg in messages %}
+          showMsg('{{msg}}', {{forloop.counter}});
+        {% endfor %}
+        $('.dropdown-toggle').dropdown();
+        $('#submit-btn').click(function(e) {
+          e.preventDefault();
+          $('#submit-form').ajaxSubmit(submitOptions);
+        });
+        {% block "js_ready" %}{% endblock %}
+      });
+    </script>
+  </body>
+</html>

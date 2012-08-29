@@ -1,0 +1,3 @@
+<label for="tags">Tags (separated by commas)</label>
+<input type="text" id="tags" name="tags" class="span12" value="{% for t in link.tags.all %}{% if forloop.counter > 1 %},{% endif %}{{ t }}{% endfor %}"></input>
+

@@ -1,0 +1,20 @@
+{% if breadcrumbs %}
+<ul class="breadcrumb">
+  <li>
+    <a href="/" class="underline">PFISDI</a> <span class="divider">/</span>
+  </li>
+  {% for crumb in breadcrumbs %}
+    <li>
+      {% if not forloop.last %}
+        {% for k, v in crumb.items %}
+          <a href="{{k}}" class="underline">{{ v }}</a><span class="divider">/</span>
+        {% endfor %}
+      {% else %}
+        {% for k, v in crumb.items %}
+          {{ v }} 
+        {% endfor %}
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}

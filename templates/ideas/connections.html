@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block "content" %}
+  <div class="row-fluid">
+    <div class="span10">
+      <form method="POST" action="{% url add_idea_to_connections %}" id="submit-form">{% csrf_token %}
+      <div class="well">
+        <select name="add_idea" id="select-idea">
+          {% for i in ideas %}
+            <option value="{{ i.id }}">{{ i.name }}</i>
+          {% endfor %}
+        </select>
+        <button type="button" id="submit-btn" class="btn btn-align">Add Idea</button>
+      </div>
+      </form>
+    </div>
+  </div>
+  <div id="viz"></div>
+{% endblock %}
+
+{% block "page_js" %}
+  <script type="text/javascript" src="{{ STATIC_URL}}js/d3.v2.min.js"></script>
+  <script type="text/javascript">
+    var svg = d3.select('#viz')
+      .append('svg')
+      .attr('width', 300)
+      .attr('height', 300);
+
+    svg.append("circle")
+      .style("stroke", "gray")
+      .style("fill", "white")
+      .attr("r", 40)
+      .attr("cx", 50)
+      .attr("cy", 50)
+      .on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
+      .on("mouseout", function(){d3.select(this).style("fill", "white");});
+  </script>
+{% endblock %}

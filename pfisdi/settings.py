@@ -64,9 +64,24 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'core',
     'taggit',
+    'search',
+    'dashboard',
+    'ideas',
+    'projects',
+    'deployments',
+    'monitoring',
+    'marketing',
+    'feedback',
+    'iterate',
+    'finance',
+    'stats',
 )
 
+AUTH_PROFILE_MODULE = 'core.Owner'
+LOGIN_URL = '/'
+LOGIN_REDIRECT_URL = '/'
 
 try:
     from local_settings import *

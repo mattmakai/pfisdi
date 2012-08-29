@@ -1,0 +1,39 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav">
+        <li>
+          <a href="{% url dashboard %}" class="logo">Passion | Focus | Intensity | Solution | Distribution | Iteration</a>
+        </li>
+      </ul>
+      <ul class="nav nav-pills pull-right">
+        <li class="dropdown" id="sites"> 
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Live Sites <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            {% if nav_projects %}
+              {% for p in nav_projects %}
+              <li><a href="{{ p.production_url }}" target="_blank">{{ p.name }}</a></li>
+              {% endfor %}
+            {% else %}
+              <li><a href="{% url projects %}">No production sites yet.</a></li>
+            {% endif %}
+          </ul>
+        </li>
+        <li class="dropdown" id="my_account"> 
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><i class="icon-user"></i> Settings</a></li>
+            <li><a href="{% url sign_out %}"><i class="icon-off"></i> Sign Out</a></li>
+          </ul>
+        </li>
+        <li class="nav-search-box">
+          <form class="navbar-search pull-left" method="POST" action="{% url tag_search %}">
+            {% csrf_token %}
+            <input type="text" class="search-query" name="search" placeholder="Search">
+          </form>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div style="height: 70px;">&nbsp;</div>

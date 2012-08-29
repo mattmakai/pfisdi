@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="{{ STATIC_URL }}css/pfi.css" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <div class="container" style="margin-top: 135px;">
+      <div class="row">
+        <div class="span4">&nbsp;
+        </div>
+        <div class="span4 well">
+          <form method="POST" action="{% url sign_in %}" id="signin-form" style="margin-bottom: 0px;" class="form">
+            {% csrf_token %}
+            <h2>Papa | Foxtrot | India</h2>
+            <div id="error-message-box" style="display: none; margin-top: 20px;">
+              <div id="error-message" class="alert alert-error">
+                <h4 class="alert-heading" id="error-message-html"></h4>
+              </div>
+            </div>
+            <div style="margin-top: 20px;">
+              <label for="username">Username</label>
+              <input type="text" name="username" id="username" class="span4"></input>
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" class="span4 validate[required] text-input">
+              </input>
+            </div>
+            <div class="place-right" style="margin-top: 10px;">
+              <button type="submit" id="sign-in-btn" class="btn btn-primary pull-right">Sign In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ STATIC_URL }}js/jq.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery.form.js"></script>
+    <script type="text/javascript">
+      function showErrorOrRedirect(data) {
+        if (data.redirect) {
+          window.location.replace(data.redirect);
+        } else {
+          $("#error-message-html").html(data);
+          $("#error-message-box").slideDown();
+        }
+      }
+      var options = { success: showErrorOrRedirect };
+
+      $('#signin-form').submit(function(e) { 
+        e.preventDefault();
+        if($('#password').val() != '' && $('#username').val() != '') {
+          $(this).ajaxSubmit(options);
+        }
+      });
+    </script>
+  </body>
+</html>

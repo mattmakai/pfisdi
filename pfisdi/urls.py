@@ -1,17 +1,20 @@
 from django.conf.urls import patterns, include, url
+from django.contrib import admin
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'pfisdi.views.home', name='home'),
-    # url(r'^pfisdi/', include('pfisdi.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^', include('core.urls')),
+    url(r'^dashboard/', include('dashboard.urls')),
+    url(r'^search/', include('search.urls')),
+    url(r'^ideas/', include('ideas.urls')),
+    url(r'^projects/', include('projects.urls')),
+    url(r'^deployments/', include('deployments.urls')),
+    url(r'^monitoring/', include('monitoring.urls')),
+    url(r'^marketing/', include('marketing.urls')),
+    url(r'^feedback/', include('feedback.urls')),
+    url(r'^iterate/', include('iterate.urls')),
+    url(r'^finance/', include('finance.urls')),
+    url(r'^stats/', include('stats.urls')),
+    url(r'^admin/', include(admin.site.urls)),
 )

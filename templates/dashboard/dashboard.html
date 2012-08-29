@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block "content" %}
+  <div class="row-fluid">
+    <div class="span12">
+      <div id="msg-bar-wrapper"></div>
+      <h3>Income Report</h3>
+        <div>
+          No income to report yet.
+        </div>
+      <hr/>
+
+      <h3>Services Status</h3>
+      {% if not projects %}
+        <div>
+          No services live yet. 
+        </div>
+      {% else %}
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="projects-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Status</th>
+              <th>Unique Visitors (Month)</th>
+              <th>Exceptions (Month)</th>
+          </thead>
+          <tbody>
+            {% for p in projects %}
+              <tr>
+                <td><a href="#" class="underline">{{ p.name }}</a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

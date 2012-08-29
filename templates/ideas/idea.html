@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block "content" %}
+    <h2>{% if slug %}New Idea{% else %}{{ idea.name }}{% endif %}</h2>
+    <div id="msg-bar-wrapper"></div>
+    <div class="row-fluid">
+        <div class="span4">
+            <form method="POST" action="{% if slug %}{% url idea slug %}{% else %}{% url new_idea %}{% endif %}" id="submit-form">
+                {% csrf_token %}
+                {% include "form_fields.html" %}
+                {% include "tag_field.html" %}
+                
+                <div class="btn-row">
+                    <a href="{% url ideas %}" class="btn">Cancel</a>
+                    <button type="button" id="submit-btn" class="btn btn-success pull-right">
+                        {% if is_new_idea %}
+                            Create Idea
+                        {% else %}
+                            Save
+                        {% endif %}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
