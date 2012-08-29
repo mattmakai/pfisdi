@@ -1,0 +1,6 @@
+*.pyc
+local_settings.py
+local_fabfile.py
+static
+*\.*swp
+.DS_Store
