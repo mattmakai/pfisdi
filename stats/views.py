@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404
@@ -27,9 +28,20 @@ def homepage_counter(req):
 
 @csrf_exempt
 def cpu_utilization(req):
-    if req.method == 'POST':
-        #if req.POST.get('handshake').strip() == settings.STATS_SECRET_KEY:
-        #deployment = get_object_or_404(Deployment,
-        #    name=req.POST.get('deployment_key'))
-        u = CPUUtilization()
-        print req.POST
+    try:
+        print req
+        if req.method == 'POST':
+            #if req.POST.get('handshake').strip() == settings.STATS_SECRET_KEY:
+            deployment = get_object_or_404(Deployment, id=1)
+            #            name=req.POST.get('deployment_key'))
+            for utilization in req.POST.getlist('utilizations'):
+                u = CPUUtilization()
+                u.deployment = deployment
+                u.interval = req.POST.get('interval')
+                u.utilization = utilization
+                u.save()
+            print req.POST
+            return HttpResponse('ok')
+    except Exception as e:
+        print e
+

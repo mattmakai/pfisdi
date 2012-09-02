@@ -15,6 +15,7 @@ class Deployment(PFISDIModel):
     ip_address = models.CharField(max_length=32, blank=True, null=True)
     ssh_port = models.IntegerField(blank=True, null=True)
     is_production = models.BooleanField(default=False)
+    # deployment_key = models.CharField(max_length=255, unique=True)
     def ssh_command(self):
         return 'ssh -p %s %s@%s' % (str(ssh_port), username, ip_address)
 

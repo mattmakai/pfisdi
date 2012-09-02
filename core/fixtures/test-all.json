@@ -1,0 +1,102 @@
+[
+    {
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "matt", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": true, 
+            "is_staff": true, 
+            "last_login": "2012-08-29T18:20:15Z", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "pbkdf2_sha256$10000$Lpk309SY1OWn$Iob3TZBTVksdGWMIEmdi+RKyc6lesUNmyi4NkSBXXVM=", 
+            "email": "makaimc@gmail.com", 
+            "date_joined": "2012-05-30T14:14:30Z"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "deployments.cloudprovider", 
+        "fields": {
+            "owner": [
+                "matt"
+            ], 
+            "slug": "linode", 
+            "name": "Linode", 
+            "created": "2012-08-23T21:12:38Z"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "deployments.cloudprovider", 
+        "fields": {
+            "owner": [
+                "matt"
+            ], 
+            "slug": "heroku", 
+            "name": "Heroku", 
+            "created": "2012-08-23T21:12:48Z"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "deployments.cloudprovider", 
+        "fields": {
+            "owner": [
+                "matt"
+            ], 
+            "slug": "amazon", 
+            "name": "Amazon", 
+            "created": "2012-08-23T21:13:12Z"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "deployments.deployment", 
+        "fields": {
+            "username": "", 
+            "is_production": false, 
+            "name": "ProofDriven production", 
+            "created": "2012-08-29T18:20:44Z", 
+            "ssh_port": null, 
+            "project": 1, 
+            "provider": 1, 
+            "owner": [
+                "matt"
+            ], 
+            "ip_address": "", 
+            "slug": "proofdriven-production1"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "projects.project", 
+        "fields": {
+            "name": "ProofDriven", 
+            "created": "2012-08-29T17:42:25Z", 
+            "repository_url": "http://github.com/makaimc/pd.git", 
+            "owner": [
+                "matt"
+            ], 
+            "production_url": "", 
+            "slug": "proofdriven1"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "ideas.idea", 
+        "fields": {
+            "concept": "", 
+            "name": "Financial models for IT", 
+            "created": "2012-08-29T14:59:59Z", 
+            "owner": [
+                "matt"
+            ], 
+            "slug": "financial-models-for-it", 
+            "projects": []
+        }
+    }
+]

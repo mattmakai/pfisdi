@@ -1,0 +1,7 @@
+Django==1.4.1
+distribute
+wsgiref
+MySQL-python
+fabric
+gunicorn
+django-celery
