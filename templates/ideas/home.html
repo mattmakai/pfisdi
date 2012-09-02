@@ -46,6 +46,7 @@
           <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="research-table">
             <thead>
               <tr>
+                <th>Name</th>
                 <th>Website</th>
                 <th>Tags</th>
               </tr>
@@ -53,7 +54,8 @@
             <tbody>
               {% for l in research_links %}
                 <tr>
-                  <td><a href="{{ l.url }}" class="underline" target="_blank">{{ l.name }}</a></td>
+                  <td><a href="{% url research_link l.slug %}">{{ l.name }}</a></td>
+                  <td><a href="{{ l.url }}" target="_blank">{{ l.name }}</a></td>
                   <td>{% for t in l.tags.all %}{% if forloop.counter > 1 %}, {% endif %}{{ t }}{% endfor %}</td>
                 </tr>
               {% endfor %}

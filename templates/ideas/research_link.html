@@ -13,9 +13,9 @@
       </h3>
       <div id="msg-bar-wrapper"></div>
       {% if slug %}
-        <form method="POST" action="{% url research_link slug %}" id="submit-form">
+        <form method="POST" action="{% url research_link slug %}">
       {% else %}
-        <form method="POST" action="{% url new_research_link %}" id="submit-form">
+        <form method="POST" action="{% url new_research_link %}">
       {% endif %}
       {% csrf_token %}
         {% include "form_fields.html" %}
@@ -23,7 +23,7 @@
 
         <div class="btn-row">
           <a href="{% url ideas %}" class="btn">Cancel</a>
-          <button type="button" id="submit-btn" class="btn btn-success pull-right">
+          <button type="submit" class="btn btn-success pull-right">
             {% if is_new_research_link %}
               Create Link
             {% else %}

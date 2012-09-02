@@ -5,14 +5,14 @@
     <div id="msg-bar-wrapper"></div>
     <div class="row-fluid">
         <div class="span4">
-            <form method="POST" action="{% if slug %}{% url idea slug %}{% else %}{% url new_idea %}{% endif %}" id="submit-form">
+            <form method="POST" action="{% if slug %}{% url idea slug %}{% else %}{% url new_idea %}{% endif %}">
                 {% csrf_token %}
                 {% include "form_fields.html" %}
                 {% include "tag_field.html" %}
                 
                 <div class="btn-row">
                     <a href="{% url ideas %}" class="btn">Cancel</a>
-                    <button type="button" id="submit-btn" class="btn btn-success pull-right">
+                    <button type="submit" class="btn btn-success pull-right">
                         {% if is_new_idea %}
                             Create Idea
                         {% else %}

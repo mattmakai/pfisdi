@@ -37,9 +37,9 @@ def home(req):
 
 @login_required
 def new_idea(req):
+    p = _create_params(req)
+    p['breadcrumbs'].append({reverse('new_idea'): 'New Idea'})
     if req.method == 'GET':
-        p = _create_params(req)
-        p['breadcrumbs'].append({reverse('new_idea'): 'New Idea'})
         p['form'] = IdeaForm()
         return render_to_response(TEMPLATE_PATH + 'idea.html', p,
             context_instance=RequestContext(req))
@@ -54,19 +54,22 @@ def new_idea(req):
                 _add_tags(idea, tags, req.user, 'idea')
             messages.add_message(req, messages.INFO,
                 'New idea "%s" successfully saved.' % idea.name)
-            return _json_response({'redirect': reverse('ideas')})
+            return HttpResponseRedirect(reverse('ideas'))
+        else:
+            p['form'] = form
+            return render_to_response(TEMPLATE_PATH + 'idea.html', p,
+                context_instance=RequestContext(req))
 
     
-
 @login_required
 def idea(req, slug):
+    p = _create_params(req)
+    p['idea'] = get_object_or_404(Idea, owner=req.user, slug=slug)
+    p['slug'] = p['idea'].slug
+    p['breadcrumbs'].append({reverse('idea', args=[slug,]): \
+        p['idea'].name})
     if req.method == 'GET':
-        p = _create_params(req)
-        p['idea'] = get_object_or_404(Idea, owner=req.user, slug=slug)
         p['form'] = IdeaForm(instance=p['idea'])
-        p['slug'] = p['idea'].slug
-        p['breadcrumbs'].append({reverse('idea', args=[slug,]): \
-            p['idea'].name})
         return render_to_response(TEMPLATE_PATH + 'idea.html', p,
             context_instance=RequestContext(req))
     elif req.method == 'POST':
@@ -79,8 +82,11 @@ def idea(req, slug):
                 _add_tags(idea, tags, req.user, 'idea')
             messages.add_message(req, messages.INFO,
                 'Idea "%s" successfully updated.' % idea.name)
-            idea.save()
-        return _json_response({'redirect': reverse('ideas')})
+            return HttpResponseRedirect(reverse('ideas'))
+        else:
+            p['form'] = form
+            return render_to_response(TEMPLATE_PATH + 'idea.html', p,
+                context_instance=RequestContext(req))
 
 
 @login_required
@@ -94,10 +100,10 @@ def connections(req):
 
 @login_required
 def new_research_link(req):
+    p = _create_params(req)
+    p['breadcrumbs'].append({reverse('new_research_link'): \
+        'New Research Link'})
     if req.method == 'GET':
-        p = _create_params(req)
-        p['breadcrumbs'].append({reverse('new_research_link'): \
-            'New Research Link'})
         p['form'] = ResearchLinkForm()
         return render_to_response(TEMPLATE_PATH + 'research_link.html', p,
             context_instance=RequestContext(req))
@@ -105,30 +111,44 @@ def new_research_link(req):
         form = ResearchLinkForm(req.POST)
         if form.is_valid():
             link = ResearchLink()
+            link.owner = req.user
             _save_research_link(form, link)
             tags = req.POST.get('tags', '').strip()
             if tags != '':
                 _add_tags(link, tags, req.user, 'research link')
-        return _json_response({'redirect': reverse('ideas')})
+            messages.add_message(req, messages.INFO,
+                'New research link "%s" created successfully.' % link.name)
+            return HttpResponseRedirect(reverse('ideas'))
+        else:
+            p['form'] = form
+            return render_to_response(TEMPLATE_PATH + 'research_link.html', p,
+                context_instance=RequestContext(req))
 
 
 @login_required
 def research_link(req, slug=''):
+    p = _create_params(req)
+    p['link'] = get_object_or_404(ResearchLink, owner=req.user, slug=slug)
+    p['breadcrumbs'].append({'ideas/link/%s/' % slug: p['link'].name })
+    p['slug'] = p['link'].slug
     if req.method == 'GET':
-        p = _create_params(req)
-        p['link'] = get_object_or_404(ResearchLink, owner=req.user, slug=slug)
-        p['breadcrumbs'].append({'ideas/link/%s/' % slug: p['link'].name })
-        p['slug'] = p['link'].slug
+        p['form'] = ResearchLinkForm(instance=p['link'])
         return render_to_response(TEMPLATE_PATH + 'research_link.html', p,
             context_instance=RequestContext(req))
     elif req.method == 'POST':
-        link = get_object_or_404(ResearchLink, owner=req.user, slug=slug)
         form = ResearchLinkForm(req.POST)
         if form.is_valid():
+            link = p['link']
+            link.owner = req.user
             _save_research_link(form, link)
-            return _json_response({'redirect': reverse('ideas')})
+            messages.add_message(req, messages.INFO,
+                'Research link  "%s" successfully updated.' % link.name)
+            return HttpResponseRedirect(reverse('ideas'))
         else:
-            return _json_response(form.errors)
+            p['form'] = form
+            return render_to_response(TEMPLATE_PATH + 'research_link.html', p,
+                context_instance=RequestContext(req))
+
 
 @login_required
 def add_idea_to_connection(req):
