@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
 
-from common import _json_response, _add_tags, _slugit
+from common import _add_tags, _slugit
 from projects.models import Project
 from ideas.models import Idea, ResearchLink
 from ideas.forms import IdeaForm, ResearchLinkForm
@@ -153,7 +153,7 @@ def research_link(req, slug=''):
 @login_required
 def add_idea_to_connection(req):
     p = _create_params(req)
-    return _json_response("ok")
+    return HttpResponse('ok')
 
 
 def _save_idea(form, i):

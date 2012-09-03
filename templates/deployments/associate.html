@@ -1,21 +1,24 @@
 {% extends 'base.html' %}
 
 {% block "content" %}
-    <h2>Deployment</h2>
+    
     {% if slug %}
+      <h2>Deployment: {{ deployment.name }}</h2>
       <div class="well">
         <a href="#" class="btn menu-btn btn-danger"><i class="icon-trash icon-white"></i> Delete Deployment</a>
       </div>
+    {% else %}
+        <h2>New Deployment</h2>
     {% endif %}
     <div class="row-fluid">
         <div class="span4">
-            <form method="POST" action="{% if slug %}{% url deployment slug %}{% else %}{% url associate_deployment %}{% endif %}" id="submit-form">
+            <form method="POST" action="{% if slug %}{% url deployment slug %}{% else %}{% url associate_deployment %}{% endif %}">
               {% csrf_token %}
               {% include "form_fields.html" %}
 
               <div class="btn-row">
                   <a href="{% url deployments %}" class="btn">Cancel</a>
-                  <button type="submit" id="submit-btn" class="btn btn-success pull-right">
+                  <button type="submit" class="btn btn-success pull-right">
                       Associate
                   </button>
               </div>

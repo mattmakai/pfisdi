@@ -11,7 +11,7 @@ from django.conf import settings
 from ideas.models import Idea
 from projects.models import Project
 from projects.forms import ProjectForm
-from common import _slugit, _json_response, _add_tags 
+from common import _slugit, _add_tags 
 
 TEMPLATE_PATH = 'projects/'
 
@@ -62,13 +62,13 @@ def new_project(req):
 @login_required
 def project(req, slug=''):
     project = get_object_or_404(Project, slug=slug, owner=req.user)
+    p = _createParams(req)
+    p['breadcrumbs'].append({reverse('project', 
+        args=[project.name,]): 'Projects'})
+    p['slug'] = project.slug
+    p['ideas'] = Idea.objects.filter(owner=req.user)
     if req.method == 'GET':
         if req.user == project.owner:
-            p = _createParams(req)
-            p['breadcrumbs'].append({reverse('project', 
-                args=[project.name,]): 'Projects'})
-            p['slug'] = project.slug
-            p['ideas'] = Idea.objects.filter(owner=req.user)
             for i in p['ideas']:
                 if project in i.projects.all():
                     i.selected = True

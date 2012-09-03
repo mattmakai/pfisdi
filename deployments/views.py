@@ -8,9 +8,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
 
-from deployments.models import CloudProvider, Deployment
-from common import _json_response, _slugit
+from common import _slugit
 from projects.models import Project
+from deployments.models import CloudProvider, Deployment
 from deployments.forms import AssociateDeploymentForm
 
 
@@ -50,19 +50,22 @@ def deployment(req, slug=''):
             if form.is_valid():
                 _save_associate_deployment(form, deployment)
                 messages.add_message(req, messages.INFO, 
-                    'Deployemnt "%s" successfully updated.' % deployment.name)
-                return _json_response({'redirect': reverse('deployments')})
+                    'Deployment "%s" successfully updated.' % deployment.name)
+                return HttpResponseRedirect(reverse('deployments'))
+            else:
+                return render_to_response(TEMPLATE_PATH + 'associate.html',
+                    p, context_instance=RequestContext(req))
+                
         else:
-            return _json_response({'error': 'You must be the owner of this' + \
-                ' deployment to edit it.'})
+            messages.add_message(req, messages.INFO, 
+                'You must be the owner of a deployment to edit it.')
+            return HttpResponseRedirect(reverse('deployments'))
         
 
 @login_required
 def associate_deployment(req):
+    p = _createParams(req)
     if req.method == 'GET':
-        p = _createParams(req)
-        p['providers'] = CloudProvider.objects.all()
-        p['projects'] = Project.objects.all()
         p['form'] = AssociateDeploymentForm()
         return render_to_response(TEMPLATE_PATH + 'associate.html', p, 
             context_instance=RequestContext(req))
@@ -75,7 +78,11 @@ def associate_deployment(req):
             messages.add_message(req, messages.INFO, 
                 '%s successfully associated with %s.' % (d.project,
                 d.provider))
-            return _json_response({'redirect': reverse('deployments')})
+            return HttpResponseRedirect(reverse('deployments'))
+        else:
+            p['form'] = form
+            return render_to_response(TEMPLATE_PATH + 'associate.html', p, 
+                context_instance=RequestContext(req))
 
 
 def _save_associate_deployment(form, d):
