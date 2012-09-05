@@ -1,0 +1,23 @@
+<mockup version="1.0" skin="sketch" measuredW="1258" measuredH="780" mockupW="1024" mockupH="768">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="234" y="12" w="1024" h="768" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Papa%20%7C%20Foxtrot%20%7C%20India%0Ahttp%3A//www.papafoxtrotindia.com/</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="258" y="128" w="977" h="599" measuredW="200" measuredH="304" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <hrefs>dashboard%26bm%3Bdashboard.bmml%26bm%3Bdashboard.bmml%26bm%3Bdashboard.bmml%2Cbrainstorm%26bm%3Bbrainstorm.bmml%26bm%3Bbrainstorm.bmml%26bm%3Bbrainstorm.bmml%2Cbuildtest%26bm%3Bbuildtest.bmml%26bm%3Bbuildtest.bmml%26bm%3Bbuildtest.bmml%2Cdeploy%26bm%3Bdeploy.bmml%26bm%3Bdeploy.bmml%26bm%3Bdeploy.bmml%2Cmonitor%26bm%3Bmonitor.bmml%26bm%3Bmonitor.bmml%26bm%3Bmonitor.bmml%2Cmarketing%26bm%3Bmarketing.bmml%26bm%3Bmarketing.bmml%26bm%3Bmarketing.bmml%2Cfeedback%26bm%3Bfeedback.bmml%26bm%3Bfeedback.bmml%26bm%3Bfeedback.bmml%2Csales%26bm%3Bsales.bmml%26bm%3Bsales.bmml%26bm%3Bsales.bmml%2Cvisualize%26bm%3Bvisualize.bmml%26bm%3Bvisualize.bmml%26bm%3Bvisualize.bmml%2Citerate%26bm%3Biterate.bmml%26bm%3Biterate.bmml%26bm%3Biterate.bmml</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C136%2C106%2C165%22%20href%3D%22dashboard.bmml%22%20alt%3D%22dashboard%22%20id%3D%221_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C165%2C106%2C194%22%20href%3D%22brainstorm.bmml%22%20alt%3D%22brainstorm%22%20id%3D%221_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C194%2C106%2C223%22%20href%3D%22buildtest.bmml%22%20alt%3D%22buildtest%22%20id%3D%221_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C223%2C106%2C252%22%20href%3D%22deploy.bmml%22%20alt%3D%22deploy%22%20id%3D%221_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C252%2C106%2C281%22%20href%3D%22monitor.bmml%22%20alt%3D%22monitor%22%20id%3D%221_4%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C281%2C106%2C310%22%20href%3D%22marketing.bmml%22%20alt%3D%22marketing%22%20id%3D%221_5%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C310%2C106%2C339%22%20href%3D%22feedback.bmml%22%20alt%3D%22feedback%22%20id%3D%221_6%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C339%2C106%2C368%22%20href%3D%22sales.bmml%22%20alt%3D%22sales%22%20id%3D%221_7%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C368%2C106%2C397%22%20href%3D%22visualize.bmml%22%20alt%3D%22visualize%22%20id%3D%221_8%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C397%2C106%2C426%22%20href%3D%22iterate.bmml%22%20alt%3D%22iterate%22%20id%3D%221_9%22/%3E%0A</map>
+        <selectedIndex>-1</selectedIndex>
+        <text>Dashboard%0ABrainstorm%0ABuild%20%26%20Test%0ADeploy%0AMonitoring%0AMarketing%0AFeedback%0ASales%0AVisualize%0AIterate</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::BreadCrumbs" x="267" y="94" w="-1" h="-1" measuredW="106" measuredH="24" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>PFI%2C%20Dashboard</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

@@ -1,0 +1,62 @@
+<mockup version="1.0" skin="sketch" measuredW="1258" measuredH="780" mockupW="1024" mockupH="768">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="234" y="12" w="1024" h="768" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Papa%20%7C%20Foxtrot%20%7C%20India%0Ahttp%3A//www.papafoxtrotindia.com/</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="258" y="128" w="977" h="599" measuredW="200" measuredH="304" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <hrefs>dashboard%26bm%3Bdashboard.bmml%26bm%3Bdashboard.bmml%26bm%3Bdashboard.bmml%2Cbrainstorm%26bm%3Bbrainstorm.bmml%26bm%3Bbrainstorm.bmml%26bm%3Bbrainstorm.bmml%2Cbuildtest%26bm%3Bbuildtest.bmml%26bm%3Bbuildtest.bmml%26bm%3Bbuildtest.bmml%2Cdeploy%26bm%3Bdeploy.bmml%26bm%3Bdeploy.bmml%26bm%3Bdeploy.bmml%2Cmonitor%26bm%3Bmonitor.bmml%26bm%3Bmonitor.bmml%26bm%3Bmonitor.bmml%2Cmarketing%26bm%3Bmarketing.bmml%26bm%3Bmarketing.bmml%26bm%3Bmarketing.bmml%2Cfeedback%26bm%3Bfeedback.bmml%26bm%3Bfeedback.bmml%26bm%3Bfeedback.bmml%2Csales%26bm%3Bsales.bmml%26bm%3Bsales.bmml%26bm%3Bsales.bmml%2Cvisualize%26bm%3Bvisualize.bmml%26bm%3Bvisualize.bmml%26bm%3Bvisualize.bmml%2Citerate%26bm%3Biterate.bmml%26bm%3Biterate.bmml%26bm%3Biterate.bmml</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C136%2C106%2C165%22%20href%3D%22dashboard.bmml%22%20alt%3D%22dashboard%22%20id%3D%221_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C165%2C106%2C194%22%20href%3D%22brainstorm.bmml%22%20alt%3D%22brainstorm%22%20id%3D%221_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C194%2C106%2C223%22%20href%3D%22buildtest.bmml%22%20alt%3D%22buildtest%22%20id%3D%221_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C223%2C106%2C252%22%20href%3D%22deploy.bmml%22%20alt%3D%22deploy%22%20id%3D%221_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C252%2C106%2C281%22%20href%3D%22monitor.bmml%22%20alt%3D%22monitor%22%20id%3D%221_4%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C281%2C106%2C310%22%20href%3D%22marketing.bmml%22%20alt%3D%22marketing%22%20id%3D%221_5%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C310%2C106%2C339%22%20href%3D%22feedback.bmml%22%20alt%3D%22feedback%22%20id%3D%221_6%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C339%2C106%2C368%22%20href%3D%22sales.bmml%22%20alt%3D%22sales%22%20id%3D%221_7%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C368%2C106%2C397%22%20href%3D%22visualize.bmml%22%20alt%3D%22visualize%22%20id%3D%221_8%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%2224%2C397%2C106%2C426%22%20href%3D%22iterate.bmml%22%20alt%3D%22iterate%22%20id%3D%221_9%22/%3E%0A</map>
+        <selectedIndex>1</selectedIndex>
+        <text>Dashboard%0ABrainstorm%0ABuild%20%26%20Test%0ADeploy%0AMonitoring%0AMarketing%0AFeedback%0ASales%0AVisualize%0AIterate</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::BreadCrumbs" x="267" y="94" w="-1" h="-1" measuredW="106" measuredH="24" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>PFI%2C%20Dashboard</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::SubTitle" x="373" y="143" w="-1" h="-1" measuredW="108" measuredH="33" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>New%20Idea</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="373" y="191" w="-1" h="-1" measuredW="40" measuredH="21" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Name</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::TextInput" x="373" y="212" w="387" h="-1" measuredW="224" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Skill%20trees%20for%20software%20development</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Label" x="373" y="270" w="-1" h="-1" measuredW="55" measuredH="21" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Concept</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::TextArea" x="373" y="291" w="387" h="140" measuredW="200" measuredH="140" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Cool%20branching%20skill%20trees%20for%20software%20development%20like%20Master%20of%20Onion%20tech%20trees.%0A%20%0AEasily%20interact%20with%20the%20trees%2C%20zoom%20around%20them%2C%20and%20show%20how%20you%27ve%20mastered%20each%20skill%20by%20linking%20to%20proof%2C%20like%20your%20Github%20account%20or%20blog%20posts.%20Makes%20it%20like%20a%20game%20for%20building%20skills.</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::Button" x="706" y="455" w="-1" h="-1" measuredW="54" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>brainstorm%26bm%3Bbrainstorm.bmml%26bm%3Bbrainstorm.bmml%26bm%3Bbrainstorm.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22472%2C443%2C526%2C470%22%20href%3D%22brainstorm.bmml%22%20alt%3D%22brainstorm%22%20id%3D%229%22/%3E</map>
+        <text>Save</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::Button" x="373" y="455" w="-1" h="-1" measuredW="64" measuredH="27" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>brainstorm%26bm%3Bbrainstorm.bmml%26bm%3Bbrainstorm.bmml%26bm%3Bbrainstorm.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22139%2C443%2C203%2C470%22%20href%3D%22brainstorm.bmml%22%20alt%3D%22brainstorm%22%20id%3D%2210%22/%3E</map>
+        <text>Cancel</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
